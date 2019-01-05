@@ -1,0 +1,33 @@
+cc_library_shared {
+    name: "libboost_thread",
+    vendor_available: true,
+    srcs: [
+        "src/tss_null.cpp",
+        "src/pthread/thread.cpp",
+        "src/pthread/once_atomic.cpp",
+        "src/pthread/once.cpp",
+        "src/future.cpp",
+    ],
+    export_include_dirs: ["include"],
+    header_libs: [
+        "libboost_predef",
+    ],
+    shared_libs: [
+        "libboost_log",
+        "libboost_system",
+    ],
+    target: {
+        android: {
+            cflags: [
+                "-fPIC",
+                "-DPIC",
+            ],
+        },
+        not_windows: {
+            cflags: [
+                "-fPIC",
+                "-DPIC",
+            ],
+         },
+    },
+}
