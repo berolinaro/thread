@@ -13,7 +13,6 @@ cc_library_shared {
         "libboost_predef",
     ],
     shared_libs: [
-        "libboost_log",
         "libboost_system",
     ],
     target: {
